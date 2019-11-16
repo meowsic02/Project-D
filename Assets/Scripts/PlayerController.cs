@@ -154,10 +154,11 @@ public class PlayerController : MonoBehaviour
         //인벤토리 키
         if (Input.GetKeyDown(KeyCode.I))
         {
-            Inventory.GetComponent<RectTransform>().sizeDelta = new Vector2((screenWidth / 10) * 8, (screenHeight / 10) * 7);
-
             if (!InventoryOpen)
             {
+                Inventory.GetComponent<RectTransform>().sizeDelta = new Vector2(screenWidth / 5 * 4, screenHeight / 10 * 7);
+                Inventory.GetComponentInChildren<GridLayoutGroup>().cellSize = new Vector2(Screen.width / 3 / 5, Screen.width / 3 / 5);
+
                 Inventory.SetActive(true);
                 InventoryOpen = true;
             }
@@ -173,10 +174,10 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            EscMenu.GetComponent<RectTransform>().sizeDelta = new Vector2(screenWidth, screenHeight);
-
             if (!EscMenuOpen)
             {
+                EscMenu.GetComponent<RectTransform>().sizeDelta = new Vector2(screenWidth, screenHeight);
+
                 Time.timeScale = 0;
                 EscMenu.SetActive(true);
                 EscMenuOpen = true;
